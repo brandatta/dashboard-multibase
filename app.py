@@ -20,7 +20,7 @@ st.title("📊 Dashboard Multiempresa")
 
 schemas = {
     "Glam": {"db": "glam", "view": "vw_glam_ventas"},
-    "Georgalos": {"db": "georgalos", "view": "vw_georgalos_stock"},
+    "Georgalos": {"db": "georgalos", "view": "control_apps"},
     "Proveedores": {"db": "proveedores", "view": "vw_prov_summary"}
 }
 
