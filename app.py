@@ -9,13 +9,13 @@ st.set_page_config(page_title="Dashboard Multi-BD", layout="wide")
 st.markdown("""
     <style>
     .stMetricValue {
-        font-size: 20px !important;
+        font-size: 16px !important;
     }
     .stMetricLabel {
-        font-size: 14px !important;
+        font-size: 10px !important;
     }
     div[data-testid="stDataFrame"] * {
-        font-size: 12px !important;
+        font-size: 8px !important;
     }
     </style>
 """, unsafe_allow_html=True)
