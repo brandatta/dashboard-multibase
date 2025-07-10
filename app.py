@@ -21,7 +21,7 @@ st.title("📊 Dashboard Multiempresa")
 schemas = {
     "Brandatta": {"db": "bd", "view": "inv_esp"},
     "Georgalos": {"db": "georgalos", "view": "control_apps"},
-    "Georgalos2": {"db": "georgalos", "view": "control_efi"}
+    "Victoria": {"db": "victoria", "view": "control_efi"}
 }
 
 cols = st.columns(len(schemas))
