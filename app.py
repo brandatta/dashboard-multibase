@@ -19,7 +19,7 @@ st.set_page_config(page_title="Dashboard Multi-BD", layout="wide")
 st.title("📊 Dashboard Multiempresa")
 
 schemas = {
-    "Brandatta": {"db": "bd", "view": "inv_esp"},
+    "Brandatta": {"db": "app_marco_new", "view": "inv_esp"},
     "Georgalos": {"db": "georgalos", "view": "control_apps"},
     "Victoria": {"db": "victoria", "view": "control_efi"}
 }
