@@ -38,10 +38,9 @@ def fetch_data(conn, view_name):
 
 # Diccionario de views y bases
 schemas = {
-    "Glam": {"db": "glam", "view": "vw_glam_ventas"},
-    "Georgalos": {"db": "georgalos", "view": "vw_georgalos_stock"},
-    "Proveedores": {"db": "proveedores", "view": "vw_prov_summary"},
-    "Marco": {"db": "app_marco_new", "view": "vw_marco_resumen"}
+    "Brandatta": {"db": "app_marco_new", "view": "inv_esp"},
+    "Georgalos": {"db": "georgalos", "view": "control_apps"},
+    "Victoria": {"db": "victoria", "view": "control_efi"}
 }
 
 # Mostrar tarjetas en columnas
