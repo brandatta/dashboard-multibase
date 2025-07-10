@@ -36,14 +36,14 @@ def fetch_data(conn, view_name):
     query = f"SELECT * FROM {view_name}"
     return pd.read_sql(query, conn)
 
-# Diccionario de views y bases
+# Diccionario de conexiones y vistas
 schemas = {
     "Brandatta": {"db": "app_marco_new", "view": "inv_esp"},
     "Georgalos": {"db": "georgalos", "view": "control_apps"},
     "Victoria": {"db": "victoria", "view": "control_efi"}
 }
 
-# Mostrar tarjetas en columnas
+# Mostrar tarjetas
 cols = st.columns(len(schemas))
 
 for idx, (label, config) in enumerate(schemas.items()):
