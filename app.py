@@ -10,6 +10,21 @@ def get_conn(db_name):
         password=st.secrets[db_name]["password"],
         database=st.secrets[db_name]["database"]
     )
+    
+# 🔠 CSS para achicar fuente
+st.markdown("""
+    <style>
+    .stMetricValue {
+        font-size: 20px !important;
+    }
+    .stMetricLabel {
+        font-size: 14px !important;
+    }
+    div[data-testid="stDataFrame"] * {
+        font-size: 12px !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 def fetch_data(conn, view_name):
     query = f"SELECT * FROM {view_name}"
