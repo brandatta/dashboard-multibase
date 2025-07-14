@@ -53,7 +53,15 @@ for idx, (label, config) in enumerate(schemas.items()):
             df = fetch_data(conn, config["view"])
             conn.close()
             st.metric(label, f"{len(df):,} registros")
-            st.dataframe(df, use_container_width=True)
+
+            # Slider para seleccionar cantidad de filas a mostrar
+            max_rows = min(len(df), 1000)  # opcionalmente limitamos a 1000
+            num_rows = st.slider(
+                f"Filas de {label}", min_value=5, max_value=max_rows,
+                value=min(10, max_rows), key=label
+            )
+
+            st.dataframe(df.head(num_rows), use_container_width=True)
+
         except Exception as e:
             st.error(f"Error en {label}: {e}")
-
