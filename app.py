@@ -55,7 +55,7 @@ for idx, (label, config) in enumerate(schemas.items()):
             conn.close()
 
             # Slider visible arriba
-            max_rows = min(len(df), 1000)
+            max_rows = min(len(df), 100)
             num_rows = st.slider(
                 "Filas", min_value=5, max_value=max_rows,
                 value=min(10, max_rows), key=label
