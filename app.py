@@ -53,7 +53,7 @@ for idx, (label, config) in enumerate(schemas.items()):
             df = fetch_data(conn, config["view"])
             conn.close()
             st.metric(label, f"{len(df):,} registros")
-            st.dataframe(df.head(5), use_container_width=True)
+            st.dataframe(df, use_container_width=True)
         except Exception as e:
             st.error(f"Error en {label}: {e}")
 
