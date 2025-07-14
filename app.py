@@ -22,7 +22,7 @@ st.markdown("""
 
 st.title("📊 Dashboard Multiempresa")
 
-# Función de conexión MySQL usando st.secrets
+# Función de conexión
 def get_conn(db_name):
     return mysql.connector.connect(
         host=st.secrets[db_name]["host"],
@@ -31,36 +31,37 @@ def get_conn(db_name):
         database=st.secrets[db_name]["database"]
     )
 
-# Función para traer los datos de una vista
+# Traer datos
 def fetch_data(conn, view_name):
     query = f"SELECT * FROM {view_name}"
     return pd.read_sql(query, conn)
 
-# Diccionario de conexiones y vistas
+# Diccionario de vistas
 schemas = {
     "Brandatta": {"db": "app_marco_new", "view": "inv_esp"},
     "Georgalos": {"db": "georgalos", "view": "control_apps"},
     "Victoria": {"db": "victoria", "view": "control_efi"}
 }
 
-# Mostrar tarjetas
+# Columnas horizontales
 cols = st.columns(len(schemas))
 
 for idx, (label, config) in enumerate(schemas.items()):
     with cols[idx]:
+        st.subheader(label)
         try:
             conn = get_conn(config["db"])
             df = fetch_data(conn, config["view"])
             conn.close()
-            st.metric(label, f"{len(df):,} registros")
 
-            # Slider para seleccionar cantidad de filas a mostrar
-            max_rows = min(len(df), 1000)  # opcionalmente limitamos a 1000
+            # Slider visible arriba
+            max_rows = min(len(df), 1000)
             num_rows = st.slider(
-                f"Filas de {label}", min_value=5, max_value=max_rows,
+                "Filas", min_value=5, max_value=max_rows,
                 value=min(10, max_rows), key=label
             )
 
+            st.metric("Registros", f"{len(df):,}")
             st.dataframe(df.head(num_rows), use_container_width=True)
 
         except Exception as e:
